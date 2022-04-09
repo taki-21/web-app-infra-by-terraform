@@ -8,6 +8,6 @@ variable "aws_profile" {
 }
 
 variable "aws_s3_bucket" {
-  type = string
+  type    = string
   default = "web-app-remote-state"
 }
