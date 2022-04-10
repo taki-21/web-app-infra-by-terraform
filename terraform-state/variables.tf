@@ -7,7 +7,12 @@ variable "aws_profile" {
   default = "default"
 }
 
-variable "aws_s3_bucket" {
+variable "s3_bucket_name" {
   type    = string
   default = "web-app-remote-state"
+}
+
+variable "dynamodb_name" {
+  type    = string
+  default = "web-app-state-lock"
 }
