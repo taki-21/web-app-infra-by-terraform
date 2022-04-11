@@ -1,4 +1,4 @@
 module "network" {
-  source = "./network"
+  source   = "./network"
   app_name = var.app_name
 }
