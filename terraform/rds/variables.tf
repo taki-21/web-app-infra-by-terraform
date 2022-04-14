@@ -11,3 +11,7 @@ variable "db_instance" {
   type    = string
   default = "db.t2.micro"
 }
+
+variable "db_username" {}
+
+variable "db_password" {}
