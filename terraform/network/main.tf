@@ -35,3 +35,11 @@ resource "aws_subnet" "private_subnets" {
     Name = "${var.app_name}-private-${var.azs_name[count.index]}"
   }
 }
+
+# インターネットゲートウェイをVPCにアタッチする
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = var.app_name
+  }
+}
