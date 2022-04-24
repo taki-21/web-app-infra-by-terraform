@@ -56,3 +56,17 @@ resource "aws_route_table_association" "public" {
   subnet_id      = element(aws_subnet.public_subnets.*.id, count.index)
   route_table_id = aws_vpc.vpc.default_route_table_id
 }
+
+resource "aws_route_table" "private" {
+  vpc_id = aws_vpc.vpc.id
+  tags = {
+    Name = "${var.app_name}-private-rtb"
+  }
+}
+
+resource "aws_route_table_association" "private" {
+  count = length(var.private_subnet_cidrs)
+
+  subnet_id      = element(aws_subnet.private_subnets.*.id, count.index)
+  route_table_id = aws_route_table.private.id
+}
